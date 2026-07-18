@@ -1,6 +1,6 @@
 cask "conduit" do
-  version "1.8.0"
-  sha256 "26357e171eeef5cc97622005129d0f8c3d6afcaddf425020cb438984b73b2380"
+  version "1.8.1"
+  sha256 "e8ada459163b44a6b81af8b05cee7d69afba8cd93c45746ce229380c350a9f82"
 
   url "https://github.com/KirsuLab/conduit/releases/download/v#{version}/Conduit-#{version}.dmg",
       verified: "github.com/KirsuLab/conduit/"
