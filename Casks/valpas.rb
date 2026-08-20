@@ -1,6 +1,6 @@
 cask "valpas" do
   version "1.0"
-  sha256 "378999d17f739b90b46b6075a7ff6674a83e05a29686dd76d1be2083a0a5f4c9"
+  sha256 "d89b35b078997b3f089250ac8efdefd689557b2249fb6d96b78bf6fb91c7dc71"
 
   url "https://github.com/KirsuLab/valpas-releases/releases/download/v#{version}/Valpas-#{version}.dmg",
       verified: "github.com/KirsuLab/valpas-releases/"
@@ -12,6 +12,15 @@ cask "valpas" do
 
   app "Valpas.app"
   binary "valpas"
+
+  postflight do
+    # Launch Services индексирует свежепоставленное приложение не мгновенно, а
+    # команда valpas адресует его по идентификатору: пока индекс не обновился,
+    # первая команда после установки уходит в никуда. Регистрируем сразу.
+    system_command "/System/Library/Frameworks/CoreServices.framework/" \
+                   "Frameworks/LaunchServices.framework/Support/lsregister",
+                   args: ["-f", "#{appdir}/Valpas.app"]
+  end
 
   zap trash: [
     "~/Library/Application Scripts/com.kirsulab.valpas",
