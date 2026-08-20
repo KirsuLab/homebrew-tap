@@ -14,12 +14,13 @@ cask "valpas" do
   binary "valpas"
 
   postflight do
-    # Launch Services индексирует свежепоставленное приложение не мгновенно, а
-    # команда valpas адресует его по идентификатору: пока индекс не обновился,
-    # первая команда после установки уходит в никуда. Регистрируем сразу.
-    system_command "/System/Library/Frameworks/CoreServices.framework/" \
-                   "Frameworks/LaunchServices.framework/Support/lsregister",
-                   args: ["-f", "#{appdir}/Valpas.app"]
+    # Приложение приезжает с карантином Homebrew, и первая проверка Gatekeeper
+    # занимает секунды. Пока она идёт, команда valpas адресует приложение,
+    # которого для системы ещё нет, и первая же команда после установки уходит
+    # в никуда. Открыть его здесь значит пройти проверку один раз на установке,
+    # а не на глазах у человека. Заодно Valpas показывает свою панель: он menu
+    # bar утилита, и делает это ровно один раз за всю жизнь.
+    system_command "/usr/bin/open", args: ["-g", "-a", "#{appdir}/Valpas.app"]
   end
 
   zap trash: [
