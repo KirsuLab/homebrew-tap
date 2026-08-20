@@ -1,6 +1,6 @@
 cask "valpas" do
   version "1.0"
-  sha256 "3514e519584c3e4dccda091142ff59cc072ece795577ae9971c76412e2723bac"
+  sha256 "378999d17f739b90b46b6075a7ff6674a83e05a29686dd76d1be2083a0a5f4c9"
 
   url "https://github.com/KirsuLab/valpas-releases/releases/download/v#{version}/Valpas-#{version}.dmg",
       verified: "github.com/KirsuLab/valpas-releases/"
@@ -11,6 +11,7 @@ cask "valpas" do
   depends_on macos: :ventura
 
   app "Valpas.app"
+  binary "valpas"
 
   zap trash: [
     "~/Library/Application Scripts/com.kirsulab.valpas",
