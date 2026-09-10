@@ -2,13 +2,10 @@ cask "conduit" do
   version "1.9.0"
   sha256 "00ebc6891d78668d88d09efba6bff5d660ed291d476dcb91c9f131b8e956d777"
 
-  url "https://github.com/KirsuLab/conduit/releases/download/v#{version}/Conduit-#{version}.dmg",
-      verified: "github.com/KirsuLab/conduit/"
+  url "https://github.com/KirsuLab/conduit/releases/download/v#{version}/Conduit-#{version}.dmg"
   name "Conduit"
   desc "File manager for Android phones, cameras and SD cards over USB or Wi-Fi"
   homepage "https://kirsulab.com/macos/conduit"
-
-  depends_on macos: :catalina
 
   app "Conduit.app"
 
