@@ -1,6 +1,6 @@
 cask "valpas" do
-  version "1.1.2"
-  sha256 "537c6a75be8867830bc405ed5e19e94fd4705c34f04622188557d5c69c318276"
+  version "1.3"
+  sha256 "4396e185008463430f2a971c56f309b6a37242aa816f36caade446b3e056d909"
 
   url "https://github.com/KirsuLab/valpas-releases/releases/download/v#{version}/Valpas-#{version}.dmg",
       verified: "github.com/KirsuLab/valpas-releases/"
